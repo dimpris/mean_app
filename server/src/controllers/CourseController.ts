@@ -6,7 +6,7 @@
 
 import express = require("express");
 import CourseBusiness = require("./../app/business/CourseBusiness");
-import IBaseController = require("./BaseController");
+import IBaseController = require("./common/BaseController");
 import ICourseModel = require("../app/model/interfaces/ICourseModel");
 
 class CourseController implements IBaseController <CourseBusiness> {

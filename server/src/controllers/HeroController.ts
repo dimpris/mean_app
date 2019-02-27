@@ -4,7 +4,7 @@
 
 import express = require("express");
 import HeroBusiness = require("./../app/business/HeroBusiness");
-import IBaseController = require("./BaseController");
+import IBaseController = require("./common/BaseController");
 import IHeroModel = require("./../app/model/interfaces/HeroModel");
 
 class HeroController implements IBaseController <HeroBusiness> {
