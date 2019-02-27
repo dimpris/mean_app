@@ -3,7 +3,7 @@
  */
 
 import DataAccess = require('../DataAccess');
-import ICourseModel = require("./../../model/interfaces/CourseModel");
+import ICourseModel = require("../../model/interfaces/ICourseModel");
 
 var mongoose = DataAccess.mongooseInstance;
 var mongooseConnection = DataAccess.mongooseConnection;

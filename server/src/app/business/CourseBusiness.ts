@@ -3,8 +3,8 @@
  */
 
 import CourseRepository = require("./../repository/CourseRepository");
-import ICourseBusiness = require("./interfaces/CourseBusiness");
-import ICourseModel = require("./../model/interfaces/CourseModel");
+import ICourseBusiness = require("./interfaces/ICourseBusiness");
+import ICourseModel = require("../model/interfaces/ICourseModel");
 import CourseModel = require("./../model/CourseModel");
 
 

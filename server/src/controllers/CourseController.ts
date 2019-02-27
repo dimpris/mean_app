@@ -7,7 +7,7 @@
 import express = require("express");
 import CourseBusiness = require("./../app/business/CourseBusiness");
 import IBaseController = require("./BaseController");
-import ICourseModel = require("./../app/model/interfaces/CourseModel");
+import ICourseModel = require("../app/model/interfaces/ICourseModel");
 
 class CourseController implements IBaseController <CourseBusiness> {
     create(req: express.Request, res: express.Response): void {

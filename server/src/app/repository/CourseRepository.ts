@@ -4,7 +4,7 @@
 
 
 //import CourseModel = require("./../model/CourseModel");
-import ICourseModel = require("./../model/interfaces/CourseModel");
+import ICourseModel = require("../model/interfaces/ICourseModel");
 import CourseSchema = require("./../dataAccess/schemas/CourseSchema");
 import RepositoryBase = require("./BaseRepository");
 

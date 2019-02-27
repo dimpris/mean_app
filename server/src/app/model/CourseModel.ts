@@ -3,7 +3,7 @@
  */
 
 
-import ICourseModel = require('./interfaces/CourseModel');
+import ICourseModel = require('./interfaces/ICourseModel');
 
 class CourseModel {
     private _model: ICourseModel;
