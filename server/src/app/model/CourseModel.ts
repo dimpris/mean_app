@@ -4,17 +4,8 @@
 
 
 import ICourseModel = require('./interfaces/ICourseModel');
+import BaseModel = require('./common/BaseModel');
 
-class CourseModel {
-    private _model: ICourseModel;
-
-    constructor(model: ICourseModel) {
-        this._model = model;
-    }
-    //
-    // get title (): string {
-    //     return this._model.title;
-    // }
-}
+class CourseModel extends BaseModel<ICourseModel> {}
 Object.seal(CourseModel);
 export  = CourseModel;
