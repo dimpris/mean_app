@@ -16,8 +16,8 @@ function handleServiceResult (error: any, result: any) {
 }
 
 class CrudBaseController<IModel, BusinessService extends IBaseBusiness<IModel>> implements IReadController, IWriteController{
-    private _service: BusinessService;
-    private routeBase: string = '';
+    protected _service: BusinessService;
+    protected routeBase: string = '';
 
     constructor(service: BusinessService, routeBase: string) {
         this._service = service;
