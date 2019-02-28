@@ -4,18 +4,19 @@
 import express = require('express');
 import path = require('path');
 
-import HeroRoutes = require('../routes/HeroRoutes');
-import CourseRoutes = require('../routes/CourseRoutes');
+import * as controllerClasses from './../../controllers';
 
-var app = express();
+let app = express();
+let router = express.Router();
+let controllerObjects = {};
 
 class Routes {
 
     get routes() {
-
-        app.use("/", new HeroRoutes().routes);
-        app.use("/", new CourseRoutes().routes);
-        
+        for (let controllerName in controllerClasses) {
+            controllerObjects[controllerName] = new controllerClasses[controllerName]();
+            app.use('/', controllerObjects[controllerName].routes(router));
+        }
         return app;
     }
 }
