@@ -3,3 +3,4 @@
  */
 export { default as CourseController } from "./CourseController";
 export { default as HeroController } from "./HeroController";
+export { default as LessonController } from './LessonController';
