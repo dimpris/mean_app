@@ -30,12 +30,12 @@ export class CoursesComponent implements OnInit {
     onSelect(course: Course) { this.selectedCourse = course; }
 
     gotoDetail() {
-        this.router.navigate(['/detail', this.selectedCourse._id]);
+        this.router.navigate(['/course', this.selectedCourse._id]);
     }
 
     addCourse() {
         this.selectedCourse = null;
-        this.router.navigate(['/detail', 'new']);
+        this.router.navigate(['/course', 'new']);
     }
 
     deleteCourse(course: Course, event: any) {

@@ -13,14 +13,12 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Object Id</th>
                     <th>Title</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let course of courses" [class.active]="course === selectedCourse" (click)="onSelect(course)">
-                    <td>{{course._id}}</td>
                     <td>{{course.title}}</td>
                     <td><button class="btn btn-danger" (click)="deleteCourse(course, $event)">Delete</button></td>
                 </tr>
@@ -32,7 +30,7 @@
     <div class="col-md-12">
         <div *ngIf="selectedCourse">
             <h2>
-                {{selectedCourse.name | uppercase}} is my course
+                {{selectedCourse.title | uppercase}} is my course
             </h2>
             <button class="btn btn-primary" (click)="gotoDetail()">View Details</button>
         </div>

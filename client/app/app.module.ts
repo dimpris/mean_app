@@ -8,6 +8,7 @@ import { routing }       from './app.routing';
 
 import { HeroesComponent }      from './components/heroes/heroes.component';
 import { CoursesComponent }      from './components/courses/courses.component';
+import { CourseFormComponent }      from './components/courseForm/course-form.component';
 import { DashboardComponent }   from './components/dashboard/dashboard.component';
 import { HeroDetailComponent }  from './components/heroDetail/hero-detail.component';
 
@@ -26,7 +27,8 @@ import { CourseService }  from './services/course.service';
     HeroesComponent,
     DashboardComponent,
     HeroDetailComponent,
-	CoursesComponent
+	CoursesComponent,
+	CourseFormComponent
   ],
   providers: [
     HeroService,
