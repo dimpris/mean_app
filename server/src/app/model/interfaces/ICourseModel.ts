@@ -5,6 +5,7 @@ interface ICourseModel extends mongoose.Document {
     description: string;
     image: string;
     alias: string;
+	lessons: [{id: string, title: string}];
 }
 
 export = ICourseModel;
