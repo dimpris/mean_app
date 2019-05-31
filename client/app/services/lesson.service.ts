@@ -6,37 +6,23 @@ import {Injectable} from '@angular/core';
 
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import {Course} from "../models/course";
 import {Lesson} from "../models/lesson";
 
 @Injectable()
-export class CourseService {
+export class LessonService {
 
-    private coursesUrl = 'api/courses';  // URL to web api
+    private lessonsUrl = 'api/lessons';  // URL to web api
 
     constructor(private http: Http) { }
-
-    getCourses(): Promise<Course[]> {
-        return this.http.get(this.coursesUrl)
-            .toPromise()
+	
+	getAllLessons(): Promise<Lesson[]> {
+		return this.http.get(this.lessonsUrl)
+			.toPromise()
             .then(response => response.json())
             .catch(this.handleError);
-    }
+	}
 
-    getCourse(id: string) {
-        return this.http.get(this.coursesUrl + '/' + id)
-            .toPromise()
-            .then(response => response.json())
-            .catch(this.handleError);
-    }
-
-    save(course: Course): Promise<Course>  {
-        if (course._id) {
-            return this.put(course);
-        }
-        return this.post(course);
-    }
-
+/*
     private post(course: Course): Promise<Course> {
         let headers = new Headers({
             'Content-Type': 'application/json'});
@@ -72,7 +58,7 @@ export class CourseService {
             .toPromise()
             .catch(this.handleError);
     }
-
+*/
     private handleError(error: any) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);

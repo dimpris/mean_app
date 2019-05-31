@@ -29,28 +29,24 @@
 	
 	<hr>
 	
-	<h3>Students</h3>
+	<h3>Lessons</h3>
 	<div class="form-group">
         <div class="col-sm-6">
 			<div class="well">
-				<label class="control-label">Add student: </label>
-				<select>
-					<option>Vasia</option>
-					<option>Kolya</option>
+				<label class="control-label">Add lesson: </label>
+				<select [(ngModel)]="selectedLessonId">
+					<option></option>
+					<option *ngFor="let lesson of allLessons" value="{{lesson._id}}" >{{lesson.title}}</option>
 				</select>
-				<input class="btn btn-default" type="button" value="Add">
+				<input (click)="addLesson()" class="btn btn-default" type="button" value="Add">
 			</div>
         </div>
 		<div class="col-sm-6">
 			<div class="well">
 				<ul class="list-group">
-				  <li class="list-group-item">
-					<span class="badge">del</span>
-					Cras Vasia
-				  </li>
-				  <li class="list-group-item">
-					<span class="badge">del</span>
-					Kolya Cras
+				  <li *ngFor="let lesson of course.lessons" class="list-group-item clearfix">
+					{{lesson.title}}
+					<button (click)="removeLesson(lesson._id)" type="button" class="btn btn-danger pull-right">Delete</button>
 				  </li>
 				</ul>
 			</div>

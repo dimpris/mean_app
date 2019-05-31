@@ -14,6 +14,7 @@ import { HeroDetailComponent }  from './components/heroDetail/hero-detail.compon
 
 import { HeroService }  from './services/hero.service';
 import { CourseService }  from './services/course.service';
+import { LessonService }  from './services/lesson.service';
 
 @NgModule({
   imports: [
@@ -32,7 +33,8 @@ import { CourseService }  from './services/course.service';
   ],
   providers: [
     HeroService,
-	CourseService
+	CourseService,
+	LessonService
   ],
   bootstrap: [AppComponent]
 })

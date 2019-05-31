@@ -4,8 +4,10 @@
 
 import {Component, Input, OnInit} from '@angular/core';
 import {Course} from "../../models/course";
+import {Lesson} from "../../models/lesson";
 import { ActivatedRoute, Params } from '@angular/router';
 import {CourseService} from "../../services/course.service";
+import {LessonService} from "../../services/lesson.service";
 
 @Component({
     selector: 'my-course-form',
@@ -14,6 +16,8 @@ import {CourseService} from "../../services/course.service";
 
 export class CourseFormComponent implements OnInit {
     @Input() course: Course;
+	allLessons: Lesson[];
+	selectedLessonId: string = "";
     newCourse = false;
     error: any;
     navigated = false; // true if navigated here
@@ -21,6 +25,7 @@ export class CourseFormComponent implements OnInit {
 
     constructor(
         private courseService: CourseService,
+        private lessonService: LessonService,
         private route: ActivatedRoute) {
     }
 
@@ -33,8 +38,17 @@ export class CourseFormComponent implements OnInit {
             } else {
                 this.newCourse = false;
                 this.courseService.getCourse(id)
-                    .then(course => this.course = course);
+                    .then(course => {
+						this.course = course;
+						//console.log("COURSE", course);
+					});
             }
+			//get list of available lessons
+			this.lessonService.getAllLessons()
+				.then(lessons => {
+					console.log("lessons", lessons);
+					this.allLessons = lessons;
+				});
         });
     }
 
@@ -47,6 +61,19 @@ export class CourseFormComponent implements OnInit {
             })
             .catch(error => this.error = error); // TODO: Display error message
     }
+	
+	removeLesson(lessonId: string) {
+		let index = this.course.lessons.findIndex(lesson => lesson._id == lessonId);
+		this.course.lessons.splice(index, 1);
+		//this.save();
+	}
+	
+	addLesson() {
+		if(this.selectedLessonId) {
+			let newLesson = this.allLessons.find(lesson => lesson._id == this.selectedLessonId);
+			this.course.lessons.push(newLesson);
+		}
+	}
 
     goBack() {
         window.history.back();
