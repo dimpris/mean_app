@@ -27,7 +27,17 @@ class CourseSchema {
             alias: {
                 type: String,
                 required: false
-            }
+            },
+			lessons: [{
+				id: {
+					type: String,
+					required: true
+				}, 
+				title : {
+					type: String,
+					required: true
+				},
+			}]
         });
 
         return schema;

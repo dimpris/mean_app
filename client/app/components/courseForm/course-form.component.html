@@ -1,0 +1,64 @@
+<div *ngIf="course" class="form-horizontal">
+    <h2 *ngIf="course.title">{{course.title}} details!</h2>
+    <div class="form-group">
+        <div *ngIf="!newCourse">
+            <label class="col-sm-2 control-label">id: </label>
+            <div class="col-sm-10">
+                {{course._id}}
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Title: </label>
+        <div class="col-sm-10">
+            <input class="form-control" [(ngModel)]="course.title" placeholder="title" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label">Image: </label>
+        <div class="col-sm-10">
+            <input class="form-control" [(ngModel)]="course.image" placeholder="image" />
+        </div>
+    </div>
+	<div class="form-group">
+        <label class="col-sm-2 control-label">Description: </label>
+        <div class="col-sm-10">
+			<textarea class="form-control" [(ngModel)]="course.description" rows="3"></textarea>		
+        </div>
+    </div>
+	
+	<hr>
+	
+	<h3>Lessons</h3>
+	<div class="form-group">
+        <div class="col-sm-6">
+			<div class="well">
+				<label class="control-label">Add lesson: </label>
+				<select [(ngModel)]="selectedLessonId">
+					<option></option>
+					<option *ngFor="let lesson of allLessons" value="{{lesson._id}}" >{{lesson.title}}</option>
+				</select>
+				<input (click)="addLesson()" class="btn btn-default" type="button" value="Add">
+			</div>
+        </div>
+		<div class="col-sm-6">
+			<div class="well">
+				<ul class="list-group">
+				  <li *ngFor="let lesson of course.lessons" class="list-group-item clearfix">
+					{{lesson.title}}
+					<button (click)="removeLesson(lesson._id)" type="button" class="btn btn-danger pull-right">Delete</button>
+				  </li>
+				</ul>
+			</div>
+        </div>
+    </div>
+	
+	<hr>
+	
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button (click)="goBack()" class="btn btn-default">Back</button>
+            <button (click)="save()" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</div>

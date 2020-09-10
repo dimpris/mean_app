@@ -7,10 +7,14 @@ import { AppComponent }  from './app.component';
 import { routing }       from './app.routing';
 
 import { HeroesComponent }      from './components/heroes/heroes.component';
+import { CoursesComponent }      from './components/courses/courses.component';
+import { CourseFormComponent }      from './components/courseForm/course-form.component';
 import { DashboardComponent }   from './components/dashboard/dashboard.component';
 import { HeroDetailComponent }  from './components/heroDetail/hero-detail.component';
 
 import { HeroService }  from './services/hero.service';
+import { CourseService }  from './services/course.service';
+import { LessonService }  from './services/lesson.service';
 
 @NgModule({
   imports: [
@@ -23,10 +27,14 @@ import { HeroService }  from './services/hero.service';
     AppComponent,
     HeroesComponent,
     DashboardComponent,
-    HeroDetailComponent
+    HeroDetailComponent,
+	CoursesComponent,
+	CourseFormComponent
   ],
   providers: [
-    HeroService
+    HeroService,
+	CourseService,
+	LessonService
   ],
   bootstrap: [AppComponent]
 })
